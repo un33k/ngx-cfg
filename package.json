@@ -86,10 +86,5 @@
     "tsickle": "^0.35.0",
     "tslint": "~5.11.0",
     "typescript": "~3.4.5"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run format -- --uncommitted"
-    }
   }
 }
