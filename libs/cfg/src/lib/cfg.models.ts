@@ -6,6 +6,9 @@
  * found in the LICENSE file at http://neekware.com/license/MIT.html
  */
 
+/**
+ * Http Methods - GET / POST Supported
+ */
 export enum HttpMethod {
   GET = 'GET',
   POST = 'POST'
