@@ -1,0 +1,21 @@
+{
+  "npmScope": "neekware/ngx-cfg",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "webapp-e2e": {
+      "tags": []
+    },
+    "webapp": {
+      "tags": []
+    },
+    "cfg": {
+      "tags": []
+    }
+  }
+}

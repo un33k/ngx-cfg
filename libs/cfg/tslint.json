@@ -1,0 +1,7 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [true, "attribute", "neekwareNgxCfg", "camelCase"],
+    "component-selector": [true, "element", "neekware-ngx-cfg", "kebab-case"]
+  }
+}
