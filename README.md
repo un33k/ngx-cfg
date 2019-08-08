@@ -82,7 +82,7 @@ export const environment: ApplicationCfg = {
   // release version
   version: '1.0.0',
   // app name
-  appName: 'Neekware',
+  appName: 'CoolApp',
   // remote configuration (from the server prior to ng bootstrap)
   remoteCfg: {
     // server url to get remote config from (default = null)

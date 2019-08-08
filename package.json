@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/neekware/ngx-cfg.git"
+    "url": "git+https://github.com/un33k/ngx-cfg.git"
   },
   "keywords": [
     "ng",
