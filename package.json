@@ -41,9 +41,9 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "ci:lib": "npm run lint cfg && npm run test cfg --codeCoverage --ci",
-    "ci:app": "npm run test webapp && npm run e2e webapp-e2e --prod --headless",
-    "ci:all": "npm run ci:lib && npm run ci:app",
+    "ci:lib": "yarn test cfg --codeCoverage --ci",
+    "ci:app": "yarn test webapp && yarn e2e webapp-e2e --prod --headless",
+    "ci:all": "yarn ci:lib && yarn ci:app",
     "release": "./node_modules/.bin/ts-node -P ./tools/tsconfig.tools.json ./tools/maintainance/release.ts"
   },
   "private": false,
