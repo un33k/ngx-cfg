@@ -104,7 +104,10 @@ async function main() {
 
     await execute(`cd ${moduleBuildPath} && ${publishCmd}`).catch(error => {
       console.log(`Failed to publish package. ${error}`);
+      process.exit(1);
     });
+
+    console.log('New version published ... ');
 
     if (!program.dev) {
       console.log('You probably want to also tag the version now:');

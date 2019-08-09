@@ -2,4 +2,4 @@
 
 Features:
 
-* Initial Version
+- Initial Version
