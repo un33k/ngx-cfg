@@ -1,5 +1,5 @@
 {
-  "npmScope": "neekware/ngx-cfg",
+  "npmScope": "un33k/ngx-cfg",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": "*",

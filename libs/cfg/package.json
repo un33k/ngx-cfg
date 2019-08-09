@@ -1,6 +1,5 @@
 {
   "name": "@un33k/ngx-cfg",
-  "version": "0.0.1",
   "description": "A Configuration Library Extension for Angular",
   "peerDependencies": {
     "@angular/common": "^8.1.1",

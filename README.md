@@ -57,7 +57,7 @@ import { CfgService } from '@un33k/ngx-cfg';
   selector: 'app-root'
 })
 export class AppComponent {
-  title = '@un33k/ngx-cfg';
+  title: string;
 
   constructor(public cfgService: CfgService) {
     this.title = this.cfgService.options.appName;
@@ -82,7 +82,7 @@ export const environment: ApplicationCfg = {
   // release version
   version: '1.0.0',
   // app name
-  appName: 'Neekware',
+  appName: 'WebApp',
   // remote configuration (from the server prior to ng bootstrap)
   remoteCfg: {
     // server url to get remote config from (default = null)
@@ -127,7 +127,7 @@ import { merge } from 'lodash';
   selector: 'app-root'
 })
 export class AppComponent {
-  title = '@un33k/ngx-cfg';
+  title: string;
   options = {};
 
   constructor(public cfgService: CfgService) {

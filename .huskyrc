@@ -1,0 +1,6 @@
+{
+  "hooks": {
+      "pre-commit": "yarn format --uncommitted",
+      "pre-push": "yarn lint cfg"
+  }
+}
