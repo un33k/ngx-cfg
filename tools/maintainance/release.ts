@@ -60,7 +60,9 @@ async function syncPackageData() {
 async function buildPackage() {
   if (program.build) {
     const cmd = `ng build cfg`;
-    console.log(cmd);
+
+    console.log(`Building the package: ${cmd}`);
+
     await execute(cmd).catch(error => {
       console.log(`Failed to build ${pkgName} ... ${error}`);
       return false;
