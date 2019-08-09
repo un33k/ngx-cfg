@@ -41,11 +41,12 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "ci:lib": "npm run lint cfg && npm run test cfg -- --codeCoverage --ci",
-    "ci:app": "npm run test webapp && npm run e2e webapp-e2e -- --prod --headless",
-    "ci:all": "npm run ci:lib && npm run ci:app"
+    "ci:lib": "npm run lint cfg && npm run test cfg --codeCoverage --ci",
+    "ci:app": "npm run test webapp && npm run e2e webapp-e2e --prod --headless",
+    "ci:all": "npm run ci:lib && npm run ci:app",
+    "release": "./node_modules/.bin/ts-node -P ./tools/tsconfig.tools.json ./tools/maintainance/release.ts"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "^8.2.0",
     "@angular/common": "^8.2.0",
@@ -57,9 +58,8 @@
     "@angular/router": "^8.2.0",
     "@nrwl/angular": "8.4.3",
     "core-js": "^2.5.4",
-    "coveralls": "^3.0.6",
+    "lodash": "^4.17.15",
     "rxjs": "~6.4.0",
-    "tslib": "^1.9.0",
     "zone.js": "^0.9.1"
   },
   "devDependencies": {
@@ -74,6 +74,8 @@
     "@types/jest": "24.0.9",
     "@types/node": "~8.9.4",
     "codelyzer": "~5.0.1",
+    "commander": "^2.20.0",
+    "coveralls": "^3.0.6",
     "cypress": "^3.4.1",
     "dotenv": "6.2.0",
     "husky": "^3.0.3",
@@ -81,9 +83,11 @@
     "jest-preset-angular": "^7.1.1",
     "ng-packagr": "^5.1.0",
     "prettier": "1.16.4",
+    "semver": "^6.3.0",
     "ts-jest": "24.0.0",
-    "ts-node": "~7.0.0",
+    "ts-node": "^8.3.0",
     "tsickle": "^0.35.0",
+    "tslib": "^1.10.0",
     "tslint": "~5.11.0",
     "typescript": "~3.4.5"
   }

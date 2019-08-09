@@ -8,17 +8,18 @@
 
 import { exec } from 'child_process';
 import { writeFile, writeFileSync, readFileSync } from 'fs';
-import { pick, get } from 'lodash';
+import { pick } from 'lodash';
 import * as path from 'path';
 import { resolve } from 'path';
 import * as program from 'commander';
 import { parse, SemVer } from 'semver';
 
-const projName = '';
-const projDir = resolve(__dirname, '..');
+const projName = 'cfg';
+const pkgName = `@un33k/${projName}`;
+const projDir = resolve(__dirname, '../..');
 const porjPkgJson = require(path.join(projDir, 'package.json'));
-const moduleBuildPath = path.join(projDir, 'builds', projName);
-const modulePkgPath = path.join(projDir, 'builds', projName, 'package.json');
+const moduleBuildPath = path.join(projDir, 'dist/libs', projName);
+const modulePkgPath = path.join(projDir, 'dist/libs', projName, 'package.json');
 const publishOptions = `--access public --non-interactive --no-git-tag-version `;
 
 const execute = (script: string): Promise<any> => {
@@ -35,7 +36,6 @@ const execute = (script: string): Promise<any> => {
 
 async function syncPackageData() {
   let modulePkg = require(modulePkgPath);
-
   // update common attributes
   const parentInfo = pick(porjPkgJson, [
     'author',
@@ -59,10 +59,10 @@ async function syncPackageData() {
 
 async function buildPackage() {
   if (program.build) {
-    const cmd = `ng build --prod`;
+    const cmd = `ng build cfg`;
     console.log(cmd);
     await execute(cmd).catch(error => {
-      console.log(`Failed to build @nwx/http-cache ... ${error}`);
+      console.log(`Failed to build ${pkgName} ... ${error}`);
       return false;
     });
   }
@@ -95,12 +95,11 @@ async function main() {
     newVersion = await getDevVersion();
     publishCmd = `yarn publish ${publishOptions} --new-version ${newVersion} --tag dev`;
   }
-
   if (program.publish) {
     await syncPackageData();
 
     console.log('Publishing new version', newVersion);
-    console.log(publishCmd);
+
     await execute(`cd ${moduleBuildPath} && ${publishCmd}`).catch(error => {
       console.log(`Failed to publish package. ${error}`);
     });
@@ -114,9 +113,9 @@ async function main() {
 
 program
   .version('0.0.1', '-v, --version')
-  .option('-b, --build', 'Build @nwx/http-cache')
-  .option('-p, --publish', 'Publish @nwx/http-cache@latest')
-  .option('-d, --dev', 'Publish @nwx/http-cache@dev')
+  .option('-b, --build', `Build ${pkgName}`)
+  .option('-p, --publish', `Publish ${pkgName}@latest`)
+  .option('-d, --dev', `Publish ${pkgName}@dev`)
   .parse(process.argv);
 
 main();
