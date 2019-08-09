@@ -35,6 +35,8 @@ const execute = (script: string): Promise<any> => {
 };
 
 async function syncPackageData() {
+  console.log(`Preparing package artifacts and metadata ...`);
+
   let modulePkg = require(modulePkgPath);
   // update common attributes
   const parentInfo = pick(porjPkgJson, [
@@ -51,7 +53,6 @@ async function syncPackageData() {
   modulePkg = { ...modulePkg, ...parentInfo };
 
   // flush new files to build dir of each package
-  console.log(`Flushed package.json  ...`);
   await writeFileSync(modulePkgPath, JSON.stringify(modulePkg, null, 2));
   await writeFileSync(path.join(moduleBuildPath, './README.md'), readFileSync('./README.md'));
 }
@@ -99,14 +100,14 @@ async function main() {
   if (program.publish) {
     await syncPackageData();
 
-    console.log('Publishing new version', newVersion);
+    console.log('Publishing a new version ...');
 
     await execute(`cd ${moduleBuildPath} && ${publishCmd}`).catch(error => {
       console.log(`Failed to publish package. ${error}`);
       process.exit(1);
     });
 
-    console.log('New version published ... ');
+    console.log(`Published ${newVersion}`);
 
     if (!program.dev) {
       console.log('You probably want to also tag the version now:');
