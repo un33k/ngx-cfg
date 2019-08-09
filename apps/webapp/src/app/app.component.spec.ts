@@ -2,6 +2,8 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { CfgModule, ApplicationCfg } from '@un33k/ngx-cfg';
 
+jest.spyOn(console, 'log').mockImplementation(() => undefined);
+
 describe('AppComponent', () => {
   const environment: ApplicationCfg = {
     production: false,
