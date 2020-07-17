@@ -58,7 +58,7 @@
     "@angular/router": "^8.2.0",
     "@nrwl/angular": "8.4.3",
     "core-js": "^2.5.4",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "rxjs": "~6.4.0",
     "zone.js": "^0.9.1"
   },
