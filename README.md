@@ -2,6 +2,9 @@
 
 **An Angular Configuration Library - Handles local and remote configurations**
 
+# Library was deprecated in favor of [`@fullerstack/ngx-config`](https://github.com/neekware/fullerstack/tree/main/libs/ngx-config)
+
+
 [![status-image]][status-link]
 [![version-image]][version-link]
 [![coverage-image]][coverage-link]
@@ -168,4 +171,4 @@ X.Y.Z Version
 
 # Sponsors
 
-[Surge](https://github.com/surgeforward)
+[Neekware Inc.](https://github.com/neekware)

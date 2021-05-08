@@ -1,29 +1,29 @@
-language: node_js
-node_js:
-  - '12'
+# language: node_js
+# node_js:
+#   - '12'
 
-cache:
-  # cache both npm modules and Cypress binary
-  directories:
-    - ~/.npm
-    - ~/.cache
-  override:
-    - npm ci
-    - npm run cy:verify
+# cache:
+#   # cache both npm modules and Cypress binary
+#   directories:
+#     - ~/.npm
+#     - ~/.cache
+#   override:
+#     - npm ci
+#     - npm run cy:verify
 
-# if using Ubuntu 16 need this library - an Electron dependency
-# https://github.com/cypress-io/cypress-documentation/pull/1647
-addons:
-  apt:
-    packages:
-      - libgconf-2-4
+# # if using Ubuntu 16 need this library - an Electron dependency
+# # https://github.com/cypress-io/cypress-documentation/pull/1647
+# addons:
+#   apt:
+#     packages:
+#       - libgconf-2-4
 
-install:
-  - npm install
-  - npm install cypress --only=dev
+# install:
+#   - npm install
+#   - npm install cypress --only=dev
 
-script:
-  - npm run ci:all
+# script:
+#   - npm run ci:all
 
-after_script:
-  - cat ./coverage/libs/cfg/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+# after_script:
+#   - cat ./coverage/libs/cfg/lcov.info | ./node_modules/coveralls/bin/coveralls.js
